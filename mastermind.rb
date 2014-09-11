@@ -24,7 +24,7 @@ class Mastermind
 
 	def multiply_rows(x)
 		for y in 1..x
-			@rows << "0 0 0 0 #{"O".colorize(:red)} #{"O".colorize(:yellow)}"
+			@rows << "0 0 0 0   #{"O".colorize(:red)} #{"O".colorize(:blue)}"
 		end
 	end
 			
@@ -96,7 +96,7 @@ class Mastermind
 				end
 				
 			end
-			@rows[row_number - 1 - counter] = @guesses.join(" ") + "  #{@reds.to_s}  #{}"
+			@rows[row_number - 1 - counter] = @guesses.join(" ") + "   #{@reds.to_s.colorize(:red)}  #{@whites.to_s.colorize(:blue)}"
 			@guesses = 0
 			@reds = 0
 			@whites = 0
@@ -105,6 +105,5 @@ class Mastermind
 	end
 end
 
-
-
-
+my_game = Mastermind.new(["0".colorize(:red),"0".colorize(:blue),"0".colorize(:green),"0".colorize(:yellow)])
+my_game.start
